@@ -14,7 +14,7 @@ export default function Home() {
         {/* Logo Section with Dynamic Glow */}
         <div className="flex justify-center mb-10">
           <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 group cursor-default">
-            {/* The "Glow" behind the logo */}
+            {/* The "Glow" behind the logo when hovered */}
             <div className="absolute inset-0 bg-amber-400/10 rounded-full blur-3xl group-hover:bg-amber-400/25 group-hover:scale-110 transition-all duration-700 ease-in-out"></div>
             <Image
               src="/ggm.png"
