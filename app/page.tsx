@@ -233,20 +233,20 @@ export default function Home() {
         )}
       </nav>
 
-      {/* HERO SECTION - EXACT FIT */}
-      <section className="relative w-full mt-20 md:mt-[112px] min-h-[600px] h-[calc(100vh-80px)] md:h-[calc(100vh-112px)] overflow-hidden flex items-center group">
-        {/* Background Image (High-res user selected handmade craft image) */}
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1766074922730-a9011b51b394?q=80&w=2500&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center lg:bg-[center_top_10%] bg-no-repeat transition-transform duration-1000 group-hover:scale-105"></div>
+      {/* HERO SECTION - NO CLIPPING */}
+      <section className="relative w-full mt-20 md:mt-[112px] min-h-[650px] md:min-h-[700px] lg:min-h-[calc(100vh-112px)] py-16 lg:pt-24 lg:pb-36 overflow-hidden flex items-center group">
+        {/* Background Image */}
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1766074922730-a9011b51b394?q=80&w=2500&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center bg-no-repeat transition-transform duration-1000 group-hover:scale-105"></div>
 
-        {/* Gradient Overlay (Dark on the left, completely transparent on the right) */}
-        <div className="absolute inset-0 bg-gradient-to-r from-emerald-950 via-emerald-950/80 to-transparent w-full md:w-3/4"></div>
-        {/* Fallback overlay for mobile screens */}
-        <div className="absolute inset-0 bg-emerald-950/50 md:hidden"></div>
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-emerald-950 via-emerald-950/95 to-transparent w-full lg:w-4/5"></div>
+        {/* Fallback overlay for smaller screens */}
+        <div className="absolute inset-0 bg-emerald-950/60 lg:hidden"></div>
 
-        {/* Main Content Container - Centered vertically, no extreme top padding needed now */}
-        <div className="relative z-10 px-8 md:px-16 lg:px-24 w-full flex flex-col justify-center py-12">
+        {/* Main Content Container */}
+        <div className="relative z-10 px-8 md:px-12 lg:px-24 w-full flex flex-col justify-center h-full">
           {/* Left Side: Text Content */}
-          <div className="flex flex-col items-start text-left space-y-6 w-full lg:w-1/2">
+          <div className="flex flex-col items-start text-left space-y-6 w-full lg:w-3/5">
             {/* Glassmorphic Welcome Badge */}
             <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-emerald-100 text-sm font-bold tracking-widest uppercase shadow-lg">
               <Sparkles className="w-4 h-4 text-amber-400" />
@@ -278,13 +278,13 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Action Buttons: Normal flow on mobile, absolute bottom-right on desktop */}
-          <div className="relative mt-8 md:mt-0 md:absolute md:bottom-12 md:right-16 flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto z-20 pb-12 md:pb-0">
-            <button className="group flex items-center justify-center gap-2 px-6 py-3 md:px-8 md:py-4 rounded-full bg-lime-400 text-emerald-950 font-bold hover:bg-lime-300 hover:shadow-[0_0_30px_rgba(163,230,53,0.4)] hover:-translate-y-1 transition-all duration-300 text-sm md:text-lg shadow-xl w-full sm:w-auto">
+          {/* Action Buttons: Standard flow on mobile/tablet, absolute on large desktop */}
+          <div className="relative mt-10 lg:mt-0 lg:absolute lg:bottom-16 lg:right-24 flex flex-row items-center gap-4 w-full lg:w-auto z-20">
+            <button className="group flex items-center justify-center gap-2 px-6 py-3 md:px-8 md:py-4 rounded-full bg-lime-400 text-emerald-950 font-bold hover:bg-lime-300 hover:shadow-[0_0_30px_rgba(163,230,53,0.4)] hover:-translate-y-1 transition-all duration-300 text-sm md:text-lg shadow-xl">
               <ShoppingBag className="w-5 h-5 group-hover:-rotate-12 transition-transform" />
               Shop Now
             </button>
-            <button className="group flex items-center justify-center gap-2 px-6 py-3 md:px-8 md:py-4 rounded-full bg-emerald-950/80 backdrop-blur-md border border-emerald-400/30 text-white font-bold hover:bg-emerald-900 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 text-sm md:text-lg shadow-xl w-full sm:w-auto">
+            <button className="group flex items-center justify-center gap-2 px-6 py-3 md:px-8 md:py-4 rounded-full bg-emerald-950/80 backdrop-blur-md border border-emerald-400/30 text-white font-bold hover:bg-emerald-900 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 text-sm md:text-lg shadow-xl">
               <Compass className="w-5 h-5 group-hover:rotate-45 transition-transform" />
               Explore
             </button>
