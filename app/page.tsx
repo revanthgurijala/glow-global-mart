@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import {
   ShoppingBag,
@@ -40,9 +43,12 @@ import {
   MapPinOff,
   MapPinPlus,
   MapPinMinus,
+  Menu,
+  X,
 } from "lucide-react";
 
 export default function Home() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   return (
     <main className="min-h-screen bg-[#f4f9f4] text-green-950 font-sans selection:bg-green-200 overflow-x-hidden">
       {/* Background Ambient Glowing Orbs */}
@@ -126,7 +132,7 @@ export default function Home() {
             </a>
           </div>
 
-          {/* Action Buttons (Search, Cart, Login) */}
+          {/* Action Buttons (Search, Cart, Login, Hamburger) */}
           <div className="flex items-center gap-3 sm:gap-5">
             <div className="relative group hidden md:block">
               <input
@@ -144,12 +150,87 @@ export default function Home() {
               </span>
             </button>
 
-            <button className="flex items-center gap-2 bg-green-700 hover:bg-green-800 px-5 py-2.5 rounded-full text-sm font-medium text-white shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 active:translate-y-0">
+            <button className="hidden sm:flex items-center gap-2 bg-green-700 hover:bg-green-800 px-5 py-2.5 rounded-full text-sm font-medium text-white shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 active:translate-y-0">
               <User className="w-4 h-4" />
-              <span className="hidden sm:inline">Login</span>
+              <span>Login</span>
+            </button>
+
+            {/* Hamburger Button (Mobile Only) */}
+            <button
+              className="lg:hidden p-2 text-green-800 hover:text-emerald-600 transition-colors"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              {isMobileMenuOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
             </button>
           </div>
         </div>
+
+        {/* Mobile Dropdown Menu */}
+        {isMobileMenuOpen && (
+          <div className="lg:hidden bg-white/95 backdrop-blur-xl border-t border-green-200 absolute top-full left-0 w-full shadow-lg flex flex-col py-4 px-6 gap-4 text-sm font-semibold text-green-900 z-50">
+            <a
+              href="#"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="hover:text-emerald-600"
+            >
+              Home
+            </a>
+            <a
+              href="#shop"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="hover:text-emerald-600"
+            >
+              Shop
+            </a>
+            <a
+              href="#services"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="hover:text-emerald-600"
+            >
+              Services
+            </a>
+            <a
+              href="#farmer-market"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="hover:text-emerald-600"
+            >
+              Farmer Market
+            </a>
+            <a
+              href="#about"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="hover:text-emerald-600"
+            >
+              About
+            </a>
+            <a
+              href="#contact"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="hover:text-emerald-600"
+            >
+              Contact
+            </a>
+            {/* Mobile Search & Login */}
+            <div className="flex flex-col gap-3 mt-2 pt-4 border-t border-green-100">
+              <div className="relative">
+                <input
+                  type="text"
+                  placeholder="Search products..."
+                  className="w-full bg-white border border-green-200 rounded-full py-2 pl-4 pr-10 text-sm focus:outline-none focus:border-emerald-500"
+                />
+                <Search className="w-4 h-4 text-green-600 absolute right-4 top-1/2 -translate-y-1/2" />
+              </div>
+              <button className="flex justify-center items-center gap-2 bg-green-700 hover:bg-green-800 px-5 py-2.5 rounded-full text-sm font-medium text-white transition-all w-full">
+                <User className="w-4 h-4" />
+                <span>Login</span>
+              </button>
+            </div>
+          </div>
+        )}
       </nav>
 
       {/* HERO SECTION - EXACT FIT */}
@@ -197,13 +278,13 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Bottom Right: Action Buttons positioned side-by-side */}
-          <div className="absolute bottom-10 right-8 md:bottom-12 md:right-16 flex flex-row items-center gap-4">
-            <button className="group flex items-center justify-center gap-2 px-6 py-3 md:px-8 md:py-4 rounded-full bg-lime-400 text-emerald-950 font-bold hover:bg-lime-300 hover:shadow-[0_0_30px_rgba(163,230,53,0.4)] hover:-translate-y-1 transition-all duration-300 text-sm md:text-lg shadow-xl">
+          {/* Action Buttons: Normal flow on mobile, absolute bottom-right on desktop */}
+          <div className="relative mt-8 md:mt-0 md:absolute md:bottom-12 md:right-16 flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto z-20 pb-12 md:pb-0">
+            <button className="group flex items-center justify-center gap-2 px-6 py-3 md:px-8 md:py-4 rounded-full bg-lime-400 text-emerald-950 font-bold hover:bg-lime-300 hover:shadow-[0_0_30px_rgba(163,230,53,0.4)] hover:-translate-y-1 transition-all duration-300 text-sm md:text-lg shadow-xl w-full sm:w-auto">
               <ShoppingBag className="w-5 h-5 group-hover:-rotate-12 transition-transform" />
               Shop Now
             </button>
-            <button className="group flex items-center justify-center gap-2 px-6 py-3 md:px-8 md:py-4 rounded-full bg-emerald-950/80 backdrop-blur-md border border-emerald-400/30 text-white font-bold hover:bg-emerald-900 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 text-sm md:text-lg shadow-xl">
+            <button className="group flex items-center justify-center gap-2 px-6 py-3 md:px-8 md:py-4 rounded-full bg-emerald-950/80 backdrop-blur-md border border-emerald-400/30 text-white font-bold hover:bg-emerald-900 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 text-sm md:text-lg shadow-xl w-full sm:w-auto">
               <Compass className="w-5 h-5 group-hover:rotate-45 transition-transform" />
               Explore
             </button>
@@ -272,7 +353,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* SERVICES */}
         {/* SERVICES */}
         <section id="services" className="space-y-8">
           <div className="text-center">
