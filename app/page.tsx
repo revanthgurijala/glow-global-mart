@@ -234,9 +234,9 @@ export default function Home() {
       </nav>
 
       {/* HERO SECTION - EXACT FIT */}
-      <section className="relative w-full mt-[112px] min-h-[calc(100vh-112px)] overflow-hidden flex items-center group">
+      <section className="relative w-full mt-20 md:mt-[112px] min-h-[600px] h-[calc(100vh-80px)] md:h-[calc(100vh-112px)] overflow-hidden flex items-center group">
         {/* Background Image (High-res user selected handmade craft image) */}
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1766074922730-a9011b51b394?q=80&w=2500&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center bg-no-repeat transition-transform duration-1000 group-hover:scale-105"></div>
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1766074922730-a9011b51b394?q=80&w=2500&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center lg:bg-[center_top_10%] bg-no-repeat transition-transform duration-1000 group-hover:scale-105"></div>
 
         {/* Gradient Overlay (Dark on the left, completely transparent on the right) */}
         <div className="absolute inset-0 bg-gradient-to-r from-emerald-950 via-emerald-950/80 to-transparent w-full md:w-3/4"></div>
