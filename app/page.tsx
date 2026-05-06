@@ -419,7 +419,10 @@ export default function Home() {
           </section>
 
           {/* SERVICES */}
-          <section id="services" className="space-y-12 relative z-10 pt-8">
+          <section
+            id="services"
+            className="space-y-12 relative z-10 pt-4 scroll-mt-24"
+          >
             {/* Section Header */}
             <div className="text-center flex flex-col items-center">
               <div className="p-3 bg-emerald-100/50 rounded-2xl text-emerald-600 mb-4 shadow-sm">
@@ -515,7 +518,10 @@ export default function Home() {
           </section>
 
           {/* SHOP */}
-          <section id="shop" className="space-y-12 relative z-10 pt-16">
+          <section
+            id="shop"
+            className="space-y-12 relative z-10 pt-4 scroll-mt-24"
+          >
             {/* Section Header */}
             <div className="text-center flex flex-col items-center">
               <div className="p-3 bg-amber-100/50 rounded-2xl text-amber-600 mb-4 shadow-sm">
@@ -636,7 +642,7 @@ export default function Home() {
           </section>
 
           {/* SECONDLIFE */}
-          <section className="space-y-12 relative z-10 pt-16">
+          <section className="space-y-12 relative z-10 pt-4 scroll-mt-24">
             {/* Section Header */}
             <div className="text-center flex flex-col items-center">
               <div className="p-3 bg-emerald-100/50 rounded-2xl text-emerald-600 mb-4 shadow-sm">
@@ -781,7 +787,7 @@ export default function Home() {
           {/* FARMER MARKET */}
           <section
             id="farmer-market"
-            className="space-y-12 relative z-10 pt-16"
+            className="space-y-12 relative z-10 pt-4 scroll-mt-24"
           >
             {/* Section Header */}
             <div className="text-center flex flex-col items-center">
@@ -899,7 +905,7 @@ export default function Home() {
           </section>
 
           {/* WHY CHOOSE US & PARTNER */}
-          <section className="space-y-12 relative z-10 pt-16">
+          <section className="space-y-12 relative z-10 pt-4 scroll-mt-24">
             {/* Section Header */}
             <div className="text-center flex flex-col items-center">
               <div className="p-3 bg-teal-100/50 rounded-2xl text-teal-600 mb-4 shadow-sm">
@@ -1092,7 +1098,7 @@ export default function Home() {
           </section>
 
           {/* OUR VISION */}
-          <section className="relative z-10 pt-16 pb-8">
+          <section className="relative z-10 pt-4 pb-8 scroll-mt-24">
             <div className="relative bg-gradient-to-br from-emerald-900 to-green-950 backdrop-blur-2xl border border-emerald-700/50 rounded-[2.5rem] p-10 md:p-16 shadow-2xl overflow-hidden group text-center flex flex-col items-center">
               {/* Ambient center glow */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-lime-500/15 rounded-full blur-[100px] pointer-events-none transition-all duration-700 group-hover:bg-lime-500/25"></div>
@@ -1118,9 +1124,10 @@ export default function Home() {
       {/* <-- MAIN CLOSES HERE. SEO PERFECT. */}
       {/* FOOTER - Now outside main! */}
       <footer className="relative z-10 bg-emerald-950 text-emerald-100/70 pt-20 pb-8 border-t-4 border-lime-500 mt-12 w-full">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-          {/* Column 1: Brand */}
-          <div className="flex flex-col gap-6">
+        {/* Upgraded Asymmetric 12-Column Grid */}
+        <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 mb-16">
+          {/* Column 1: Brand (Takes up 4/12 spaces on desktop) */}
+          <div className="flex flex-col gap-6 md:col-span-12 lg:col-span-4">
             <div className="flex items-center gap-3">
               <div className="w-12 h-12 bg-gradient-to-br from-lime-400 to-emerald-600 rounded-xl flex items-center justify-center text-white font-black text-2xl shadow-lg border border-white/20">
                 G
@@ -1135,7 +1142,6 @@ export default function Home() {
               to the world.
             </p>
             <div className="flex items-center gap-3 mt-2">
-              {/* Raw SVGs used for Social Icons to avoid Lucide import errors */}
               <a
                 href="#"
                 className="p-2.5 bg-white/5 rounded-full hover:bg-lime-500 hover:text-emerald-950 transition-all duration-300 hover:-translate-y-1"
@@ -1215,8 +1221,8 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Column 2: Quick Links */}
-          <div>
+          {/* Column 2: Quick Links (Takes up 2/12 spaces) */}
+          <div className="md:col-span-4 lg:col-span-2">
             <h4 className="text-white font-bold mb-6 text-lg tracking-wide uppercase">
               Quick Links
             </h4>
@@ -1260,8 +1266,8 @@ export default function Home() {
             </ul>
           </div>
 
-          {/* Column 3: Initiatives */}
-          <div>
+          {/* Column 3: Initiatives (Takes up 2/12 spaces) */}
+          <div className="md:col-span-4 lg:col-span-2">
             <h4 className="text-white font-bold mb-6 text-lg tracking-wide uppercase">
               Initiatives
             </h4>
@@ -1281,7 +1287,7 @@ export default function Home() {
                   className="hover:text-lime-400 transition-colors flex items-center gap-2 group"
                 >
                   <ArrowRight className="w-3 h-3 text-emerald-500 group-hover:text-lime-400 transition-colors group-hover:translate-x-1" />{" "}
-                  One District One Product
+                  ODOP
                 </a>
               </li>
               <li>
@@ -1305,33 +1311,29 @@ export default function Home() {
             </ul>
           </div>
 
-          {/* Column 4: Contact */}
-          <div>
+          {/* Column 4: Contact (Takes up 4/12 spaces on desktop to fit the address beautifully) */}
+          <div className="md:col-span-12 lg:col-span-4 lg:pl-4">
             <h4 className="text-white font-bold mb-6 text-lg tracking-wide uppercase">
               Contact Us
             </h4>
             <ul className="space-y-4 text-sm font-medium">
-              <li className="flex items-start gap-3 bg-white/5 p-3 rounded-xl border border-white/5 hover:border-white/10 transition-colors">
+              <li className="flex items-start gap-3 bg-white/5 p-4 rounded-xl border border-white/5 hover:border-white/10 transition-colors">
                 <MapPin className="w-5 h-5 text-lime-400 shrink-0 mt-0.5" />
-                <span className="leading-snug">
+                <span className="leading-relaxed text-[13px] text-emerald-100/90">
                   A-39/1st floor, Hal Raghavendra colony, opposite SBI lane near
-                  vishal mega mart,Suchitra, Raghavendra Colony, Quthbullapur,
+                  vishal mega mart, Suchitra, Raghavendra Colony, Quthbullapur,
                   Hyderabad, Telangana 500067
                   <br />
                   India
                 </span>
               </li>
-              <li className="flex items-center gap-3 hover:text-lime-400 transition-colors cursor-pointer">
+              <li className="flex items-center gap-3 hover:text-lime-400 transition-colors cursor-pointer pt-2">
                 <Mail className="w-4 h-4 text-lime-400 shrink-0" />
                 <span>gowthami@glowglobalmart.com</span>
               </li>
               <li className="flex items-center gap-3 hover:text-lime-400 transition-colors cursor-pointer">
                 <Phone className="w-4 h-4 text-lime-400 shrink-0" />
-                <span>
-                  +91 - 99634 20226
-                  <br />
-                  +91 - 88863 08184
-                </span>
+                <span>+91 - 99634 20226 | +91 - 88863 08184</span>
               </li>
             </ul>
           </div>
