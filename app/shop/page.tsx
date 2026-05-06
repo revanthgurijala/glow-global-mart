@@ -4,6 +4,8 @@ import { Filter, ChevronDown, ShoppingBag, ShoppingCart, Search, Star } from "lu
 import { createClient } from "next-sanity";
 import imageUrlBuilder from "@sanity/image-url";
 
+export const dynamic = 'force-dynamic';
+
 // 1. Connect to your Sanity Database
 const client = createClient({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
