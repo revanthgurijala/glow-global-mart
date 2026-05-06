@@ -1,7 +1,9 @@
 "use client";
-
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import {
   Store,
   Lightbulb,
@@ -76,187 +78,13 @@ export default function Home() {
       {" "}
       {/* <--- ADD THIS EXACTLY HERE */}
       <main className="min-h-screen bg-[#f4f9f4] text-green-950 font-sans selection:bg-green-200 overflow-x-hidden">
+        <Navbar />
         {/* Background Ambient Glowing Orbs */}
         <div className="fixed top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-emerald-400/20 blur-[120px] pointer-events-none animate-pulse duration-1000 z-0"></div>
         <div
           className="fixed bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-lime-400/20 blur-[120px] pointer-events-none animate-pulse duration-1000 z-0"
           style={{ animationDelay: "2s" }}
         ></div>
-
-        {/* Navigation (Glassmorphism Sticky Header) */}
-        <nav className="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-xl border-b border-green-200/50 flex flex-col shadow-sm">
-          {/* Topbar (Thin strip) */}
-          <div className="hidden md:flex bg-emerald-900 py-2 border-b border-emerald-950 shadow-inner">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex justify-center items-center gap-12 sm:gap-16 text-xs font-medium text-emerald-100 tracking-wide">
-              <span className="flex items-center gap-2 hover:text-white transition-colors cursor-default">
-                <Users className="w-4 h-4 text-emerald-400" /> Empowering
-                communities
-              </span>
-              <span className="flex items-center gap-2 hover:text-white transition-colors cursor-default">
-                <Leaf className="w-4 h-4 text-emerald-400" /> Sustainable Living
-              </span>
-              <span className="flex items-center gap-2 hover:text-white transition-colors cursor-default">
-                <ShieldCheck className="w-4 h-4 text-emerald-400" /> Authentic
-                Products
-              </span>
-            </div>
-          </div>
-
-          {/* Main Navbar */}
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between w-full">
-            <div className="flex items-center gap-3 shrink-0">
-              <Image
-                src="/ggm.png"
-                alt="Glow Global Mart Logo"
-                width={40}
-                height={40}
-                className="object-contain"
-              />
-              <span className="text-xl font-bold text-green-950 tracking-wide font-['var(--font-outfit)'] hidden sm:block">
-                Glow Global Mart
-              </span>
-            </div>
-
-            {/* Main Links (Center) */}
-            <div className="hidden lg:flex items-center gap-8 text-sm font-semibold text-green-900">
-              <a href="#" className="relative group py-1">
-                <span className="group-hover:text-emerald-600 transition-colors duration-300">
-                  Home
-                </span>
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-emerald-500 transition-all duration-300 ease-out group-hover:w-full rounded-full"></span>
-              </a>
-              <a href="#shop" className="relative group py-1">
-                <span className="group-hover:text-emerald-600 transition-colors duration-300">
-                  Shop
-                </span>
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-emerald-500 transition-all duration-300 ease-out group-hover:w-full rounded-full"></span>
-              </a>
-              <a href="#services" className="relative group py-1">
-                <span className="group-hover:text-emerald-600 transition-colors duration-300">
-                  Services
-                </span>
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-emerald-500 transition-all duration-300 ease-out group-hover:w-full rounded-full"></span>
-              </a>
-              <a href="#farmer-market" className="relative group py-1">
-                <span className="group-hover:text-emerald-600 transition-colors duration-300">
-                  Farmer Market
-                </span>
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-emerald-500 transition-all duration-300 ease-out group-hover:w-full rounded-full"></span>
-              </a>
-              <a href="#about" className="relative group py-1">
-                <span className="group-hover:text-emerald-600 transition-colors duration-300">
-                  About
-                </span>
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-emerald-500 transition-all duration-300 ease-out group-hover:w-full rounded-full"></span>
-              </a>
-              <a href="#contact" className="relative group py-1">
-                <span className="group-hover:text-emerald-600 transition-colors duration-300">
-                  Contact
-                </span>
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-emerald-500 transition-all duration-300 ease-out group-hover:w-full rounded-full"></span>
-              </a>
-            </div>
-
-            {/* Action Buttons (Search, Cart, Login, Hamburger) */}
-            <div className="flex items-center gap-3 sm:gap-5">
-              <div className="relative group hidden md:block">
-                <input
-                  type="text"
-                  placeholder="Search products..."
-                  className="bg-white/80 border border-green-200 rounded-full py-2 pl-4 pr-10 text-sm text-green-950 placeholder-green-600 focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 transition-all w-48 xl:w-64"
-                />
-                <Search className="w-4 h-4 text-green-600 absolute right-4 top-1/2 -translate-y-1/2 group-hover:text-emerald-600 transition-colors" />
-              </div>
-
-              <button className="relative p-2 text-green-800 hover:text-emerald-600 hover:bg-emerald-50 rounded-full transition-all duration-300 hover:scale-110 active:scale-95">
-                <ShoppingCart className="w-5 h-5" />
-                <span className="absolute top-0 right-0 w-4 h-4 bg-amber-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center shadow-sm border border-white">
-                  0
-                </span>
-              </button>
-
-              <button className="hidden sm:flex items-center gap-2 bg-green-700 hover:bg-green-800 px-5 py-2.5 rounded-full text-sm font-medium text-white shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 active:translate-y-0">
-                <User className="w-4 h-4" />
-                <span>Login</span>
-              </button>
-
-              {/* Hamburger Button (Mobile Only) */}
-              <button
-                className="lg:hidden p-2 text-green-800 hover:text-emerald-600 transition-colors"
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              >
-                {isMobileMenuOpen ? (
-                  <X className="w-6 h-6" />
-                ) : (
-                  <Menu className="w-6 h-6" />
-                )}
-              </button>
-            </div>
-          </div>
-
-          {/* Mobile Dropdown Menu */}
-          {isMobileMenuOpen && (
-            <div className="lg:hidden bg-white/95 backdrop-blur-xl border-t border-green-200 absolute top-full left-0 w-full shadow-lg flex flex-col py-4 px-6 gap-4 text-sm font-semibold text-green-900 z-50">
-              <a
-                href="#"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="hover:text-emerald-600"
-              >
-                Home
-              </a>
-              <a
-                href="#shop"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="hover:text-emerald-600"
-              >
-                Shop
-              </a>
-              <a
-                href="#services"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="hover:text-emerald-600"
-              >
-                Services
-              </a>
-              <a
-                href="#farmer-market"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="hover:text-emerald-600"
-              >
-                Farmer Market
-              </a>
-              <a
-                href="#about"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="hover:text-emerald-600"
-              >
-                About
-              </a>
-              <a
-                href="#contact"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="hover:text-emerald-600"
-              >
-                Contact
-              </a>
-              {/* Mobile Search & Login */}
-              <div className="flex flex-col gap-3 mt-2 pt-4 border-t border-green-100">
-                <div className="relative">
-                  <input
-                    type="text"
-                    placeholder="Search products..."
-                    className="w-full bg-white border border-green-200 rounded-full py-2 pl-4 pr-10 text-sm focus:outline-none focus:border-emerald-500"
-                  />
-                  <Search className="w-4 h-4 text-green-600 absolute right-4 top-1/2 -translate-y-1/2" />
-                </div>
-                <button className="flex justify-center items-center gap-2 bg-green-700 hover:bg-green-800 px-5 py-2.5 rounded-full text-sm font-medium text-white transition-all w-full">
-                  <User className="w-4 h-4" />
-                  <span>Login</span>
-                </button>
-              </div>
-            </div>
-          )}
-        </nav>
 
         {/* HERO SECTION - NO CLIPPING */}
         <section className="relative w-full mt-20 md:mt-[112px] min-h-[650px] md:min-h-[700px] lg:min-h-[calc(100vh-112px)] py-16 lg:pt-24 lg:pb-36 overflow-hidden flex items-center group">
@@ -305,14 +133,20 @@ export default function Home() {
 
             {/* Action Buttons: Standard flow on mobile/tablet, absolute on large desktop */}
             <div className="relative mt-10 lg:mt-0 lg:absolute lg:bottom-16 lg:right-24 flex flex-row items-center gap-4 w-full lg:w-auto z-20">
-              <button className="group flex items-center justify-center gap-2 px-6 py-3 md:px-8 md:py-4 rounded-full bg-lime-400 text-emerald-950 font-bold hover:bg-lime-300 hover:shadow-[0_0_30px_rgba(163,230,53,0.4)] hover:-translate-y-1 transition-all duration-300 text-sm md:text-lg shadow-xl">
+              <Link
+                href="/shop"
+                className="group flex items-center justify-center gap-2 px-6 py-3 md:px-8 md:py-4 rounded-full bg-lime-400 text-emerald-950 font-bold hover:bg-lime-300 hover:shadow-[0_0_30px_rgba(163,230,53,0.4)] hover:-translate-y-1 transition-all duration-300 text-sm md:text-lg shadow-xl"
+              >
                 <ShoppingBag className="w-5 h-5 group-hover:-rotate-12 transition-transform" />
                 Shop Now
-              </button>
-              <button className="group flex items-center justify-center gap-2 px-6 py-3 md:px-8 md:py-4 rounded-full bg-emerald-950/80 backdrop-blur-md border border-emerald-400/30 text-white font-bold hover:bg-emerald-900 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 text-sm md:text-lg shadow-xl">
+              </Link>
+              <Link
+                href="#about"
+                className="group flex items-center justify-center gap-2 px-6 py-3 md:px-8 md:py-4 rounded-full bg-emerald-950/80 backdrop-blur-md border border-emerald-400/30 text-white font-bold hover:bg-emerald-900 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 text-sm md:text-lg shadow-xl"
+              >
                 <Compass className="w-5 h-5 group-hover:rotate-45 transition-transform" />
                 Explore
-              </button>
+              </Link>
             </div>
           </div>
         </section>
@@ -523,16 +357,23 @@ export default function Home() {
             className="space-y-12 relative z-10 pt-4 scroll-mt-24"
           >
             {/* Section Header */}
-            <div className="text-center flex flex-col items-center">
+            <div className="text-center flex flex-col items-center mb-8">
               <div className="p-3 bg-amber-100/50 rounded-2xl text-amber-600 mb-4 shadow-sm">
                 <ShoppingBag className="w-8 h-8" />
               </div>
               <h2 className="text-4xl md:text-5xl font-black text-green-950 font-['var(--font-outfit)'] tracking-tight mb-4">
                 SHOP
               </h2>
-              <p className="text-amber-600 text-lg font-bold tracking-widest uppercase">
+              <p className="text-amber-600 text-lg font-bold tracking-widest uppercase mb-6">
                 What You Can Buy
               </p>
+              <Link
+                href="/shop"
+                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-amber-100/80 border border-amber-200 text-amber-800 font-bold hover:bg-amber-200 transition-colors group shadow-sm"
+              >
+                View Full Collection{" "}
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
             </div>
 
             {/* Advanced Bento Box Layout */}
@@ -703,6 +544,17 @@ export default function Home() {
                       className="object-contain z-10 drop-shadow-2xl scale-95 transition-transform duration-700 group-hover:scale-100"
                     />
                   </div>
+
+                  {/* NEW: Button moved to the left card below the image */}
+                  <div className="mt-8 flex justify-center sm:justify-start">
+                    <Link
+                      href="/shop"
+                      className="px-8 py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white text-base font-bold rounded-full transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 flex items-center gap-2"
+                    >
+                      <ShoppingBag className="w-5 h-5" />
+                      Shop Eco-Friendly
+                    </Link>
+                  </div>
                 </div>
               </div>
 
@@ -771,7 +623,7 @@ export default function Home() {
                     </div>
                   </div>
 
-                  {/* Final Callout at the bottom */}
+                  {/* Final Callout at the bottom (Text Only) */}
                   <div className="flex items-start gap-3 p-5 bg-gradient-to-r from-emerald-50 to-white border border-emerald-100/80 rounded-2xl group-hover:border-emerald-200 transition-colors mt-auto shadow-sm">
                     <CheckCircle2 className="w-6 h-6 text-emerald-500 shrink-0 mt-0.5 fill-emerald-500/10" />
                     <p className="text-emerald-900 font-semibold leading-snug">
@@ -857,6 +709,16 @@ export default function Home() {
                       </span>
                     </div>
                   </div>
+                  {/* NEW: Button moved to the left card below the list */}
+                  <div className="mt-8 flex justify-center sm:justify-start">
+                    <Link
+                      href="/shop"
+                      className="px-8 py-3.5 bg-lime-500 hover:bg-lime-400 text-emerald-950 text-base font-bold rounded-full transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 flex items-center gap-2"
+                    >
+                      <Tractor className="w-5 h-5" />
+                      Shop Farm Fresh
+                    </Link>
+                  </div>
                 </div>
               </div>
 
@@ -891,8 +753,8 @@ export default function Home() {
                     />
                   </div>
 
-                  {/* Final Callout at the bottom */}
-                  <div className="flex items-start gap-3 p-5 bg-white/60 backdrop-blur-md border border-lime-200/80 rounded-2xl group-hover:border-lime-300 transition-colors shadow-sm">
+                  {/* Final Callout at the bottom (Text Only) */}
+                  <div className="flex items-start gap-3 p-5 bg-white/60 backdrop-blur-md border border-lime-200/80 rounded-2xl group-hover:border-lime-300 transition-colors shadow-sm mt-auto">
                     <CheckCircle2 className="w-6 h-6 text-lime-600 shrink-0 mt-0.5 fill-lime-600/10" />
                     <p className="text-lime-950 font-semibold leading-snug">
                       In selected cases, we also facilitate crop testing
@@ -1121,242 +983,8 @@ export default function Home() {
           </section>
         </div>
       </main>{" "}
+      <Footer />
       {/* <-- MAIN CLOSES HERE. SEO PERFECT. */}
-      {/* FOOTER - Now outside main! */}
-      <footer className="relative z-10 bg-emerald-950 text-emerald-100/70 pt-20 pb-8 border-t-4 border-lime-500 mt-12 w-full">
-        {/* Upgraded Asymmetric 12-Column Grid */}
-        <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 mb-16">
-          {/* Column 1: Brand (Takes up 4/12 spaces on desktop) */}
-          <div className="flex flex-col gap-6 md:col-span-12 lg:col-span-4">
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 bg-gradient-to-br from-lime-400 to-emerald-600 rounded-xl flex items-center justify-center text-white font-black text-2xl shadow-lg border border-white/20">
-                G
-              </div>
-              <span className="text-2xl font-black tracking-tight text-white font-['var(--font-outfit)']">
-                Glow Global Mart
-              </span>
-            </div>
-            <p className="text-sm font-medium leading-relaxed pr-4">
-              Empowering communities through meaningful, responsible, and
-              sustainable shopping. Connecting artisans, farmers, and innovators
-              to the world.
-            </p>
-            <div className="flex items-center gap-3 mt-2">
-              <a
-                href="#"
-                className="p-2.5 bg-white/5 rounded-full hover:bg-lime-500 hover:text-emerald-950 transition-all duration-300 hover:-translate-y-1"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                </svg>
-              </a>
-              <a
-                href="#"
-                className="p-2.5 bg-white/5 rounded-full hover:bg-lime-500 hover:text-emerald-950 transition-all duration-300 hover:-translate-y-1"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
-                </svg>
-              </a>
-              <a
-                href="#"
-                className="p-2.5 bg-white/5 rounded-full hover:bg-lime-500 hover:text-emerald-950 transition-all duration-300 hover:-translate-y-1"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                </svg>
-              </a>
-              <a
-                href="#"
-                className="p-2.5 bg-white/5 rounded-full hover:bg-lime-500 hover:text-emerald-950 transition-all duration-300 hover:-translate-y-1"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                  <rect x="2" y="9" width="4" height="12"></rect>
-                  <circle cx="4" cy="4" r="2"></circle>
-                </svg>
-              </a>
-            </div>
-          </div>
-
-          {/* Column 2: Quick Links (Takes up 2/12 spaces) */}
-          <div className="md:col-span-4 lg:col-span-2">
-            <h4 className="text-white font-bold mb-6 text-lg tracking-wide uppercase">
-              Quick Links
-            </h4>
-            <ul className="space-y-4 text-sm font-medium">
-              <li>
-                <a
-                  href="#about"
-                  className="hover:text-lime-400 transition-colors flex items-center gap-2 group"
-                >
-                  <ArrowRight className="w-3 h-3 text-emerald-500 group-hover:text-lime-400 transition-colors group-hover:translate-x-1" />{" "}
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#shop"
-                  className="hover:text-lime-400 transition-colors flex items-center gap-2 group"
-                >
-                  <ArrowRight className="w-3 h-3 text-emerald-500 group-hover:text-lime-400 transition-colors group-hover:translate-x-1" />{" "}
-                  Shop Collections
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#services"
-                  className="hover:text-lime-400 transition-colors flex items-center gap-2 group"
-                >
-                  <ArrowRight className="w-3 h-3 text-emerald-500 group-hover:text-lime-400 transition-colors group-hover:translate-x-1" />{" "}
-                  Our Services
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#farmer-market"
-                  className="hover:text-lime-400 transition-colors flex items-center gap-2 group"
-                >
-                  <ArrowRight className="w-3 h-3 text-emerald-500 group-hover:text-lime-400 transition-colors group-hover:translate-x-1" />{" "}
-                  Farmer Market
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Column 3: Initiatives (Takes up 2/12 spaces) */}
-          <div className="md:col-span-4 lg:col-span-2">
-            <h4 className="text-white font-bold mb-6 text-lg tracking-wide uppercase">
-              Initiatives
-            </h4>
-            <ul className="space-y-4 text-sm font-medium">
-              <li>
-                <a
-                  href="#"
-                  className="hover:text-lime-400 transition-colors flex items-center gap-2 group"
-                >
-                  <ArrowRight className="w-3 h-3 text-emerald-500 group-hover:text-lime-400 transition-colors group-hover:translate-x-1" />{" "}
-                  Second Life (Eco)
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="hover:text-lime-400 transition-colors flex items-center gap-2 group"
-                >
-                  <ArrowRight className="w-3 h-3 text-emerald-500 group-hover:text-lime-400 transition-colors group-hover:translate-x-1" />{" "}
-                  ODOP
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="hover:text-lime-400 transition-colors flex items-center gap-2 group"
-                >
-                  <ArrowRight className="w-3 h-3 text-emerald-500 group-hover:text-lime-400 transition-colors group-hover:translate-x-1" />{" "}
-                  Corporate Gifting
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#contact"
-                  className="hover:text-lime-400 transition-colors flex items-center gap-2 group"
-                >
-                  <ArrowRight className="w-3 h-3 text-emerald-500 group-hover:text-lime-400 transition-colors group-hover:translate-x-1" />{" "}
-                  Partner With Us
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Column 4: Contact (Takes up 4/12 spaces on desktop to fit the address beautifully) */}
-          <div className="md:col-span-12 lg:col-span-4 lg:pl-4">
-            <h4 className="text-white font-bold mb-6 text-lg tracking-wide uppercase">
-              Contact Us
-            </h4>
-            <ul className="space-y-4 text-sm font-medium">
-              <li className="flex items-start gap-3 bg-white/5 p-4 rounded-xl border border-white/5 hover:border-white/10 transition-colors">
-                <MapPin className="w-5 h-5 text-lime-400 shrink-0 mt-0.5" />
-                <span className="leading-relaxed text-[13px] text-emerald-100/90">
-                  A-39/1st floor, Hal Raghavendra colony, opposite SBI lane near
-                  vishal mega mart, Suchitra, Raghavendra Colony, Quthbullapur,
-                  Hyderabad, Telangana 500067
-                  <br />
-                  India
-                </span>
-              </li>
-              <li className="flex items-center gap-3 hover:text-lime-400 transition-colors cursor-pointer pt-2">
-                <Mail className="w-4 h-4 text-lime-400 shrink-0" />
-                <span>gowthami@glowglobalmart.com</span>
-              </li>
-              <li className="flex items-center gap-3 hover:text-lime-400 transition-colors cursor-pointer">
-                <Phone className="w-4 h-4 text-lime-400 shrink-0" />
-                <span>+91 - 99634 20226 | +91 - 88863 08184</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        {/* Copyright & Legal */}
-        <div className="max-w-7xl mx-auto px-6 md:px-12 border-t border-emerald-800/50 pt-8 mt-4 flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-medium text-emerald-400/60">
-          <p>© 2026 Glow Global Mart. All rights reserved.</p>
-          <div className="flex items-center gap-4">
-            <a href="#" className="hover:text-lime-400 transition-colors">
-              Privacy Policy
-            </a>
-            <div className="w-1 h-1 bg-emerald-800 rounded-full"></div>
-            <a href="#" className="hover:text-lime-400 transition-colors">
-              Terms of Service
-            </a>
-            <div className="w-1 h-1 bg-emerald-800 rounded-full"></div>
-            <a href="#" className="hover:text-lime-400 transition-colors">
-              Refund Policy
-            </a>
-          </div>
-        </div>
-      </footer>
     </> /* <-- INVISIBLE FRAGMENT CLOSES HERE */
   );
 }
