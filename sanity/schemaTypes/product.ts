@@ -40,10 +40,19 @@ export const product = defineType({
       type: "number",
     }),
     defineField({
-      name: "image",
-      title: "Product Image",
-      type: "image",
-      options: { hotspot: true },
+      name: "images", // Changed to plural "images"
+      title: "Product Images (Upload Multiple)",
+      type: "array",
+      of: [{ type: "image", options: { hotspot: true } }],
+      validation: (Rule) =>
+        Rule.min(1).error("You must upload at least one image."),
+    }),
+    defineField({
+      name: "video",
+      title: "Short Product Video (Optional)",
+      type: "file",
+      options: { accept: "video/mp4,video/webm" }, // Only accepts web-friendly video formats
+      description: "Upload a short video (under 10MB) showing the product.",
     }),
     defineField({
       name: "description",
