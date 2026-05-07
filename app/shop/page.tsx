@@ -1,39 +1,20 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import {
-  Filter,
-  ChevronDown,
-  ShoppingBag,
-  ShoppingCart,
-  Search,
-  Star,
-} from "lucide-react";
 import { createClient } from "next-sanity";
-import { createImageUrlBuilder } from "@sanity/image-url";
+import ShopClient from "@/components/ShopClient"; // Import our new interactive component!
 
 export const dynamic = "force-dynamic";
 
-// 1. Connect to your Sanity Database
 const client = createClient({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
   apiVersion: "2024-01-01",
-  useCdn: false, // Set to false so it updates immediately when the client adds a product
+  useCdn: false,
 });
 
-// 2. Setup the tool that loads Sanity Images
-const builder = createImageUrlBuilder(client);
-function urlFor(source: any) {
-  return builder.image(source);
-}
-
-// 3. Make the page async so it can fetch the database
 export default async function Shop() {
-  // 4. Fetch the products from Sanity!
+  // Fetch ALL products from Sanity on the server
   const products = await client.fetch(`*[_type == "product"]`);
-
-  // 5. Change this to your actual WhatsApp Number (Include country code, no + sign)
-  const myWhatsAppNumber = "918886308184";
 
   return (
     <>
@@ -61,111 +42,10 @@ export default async function Shop() {
           </div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 -mt-8 flex flex-col gap-16 pb-20">
-          <div className="flex flex-col lg:flex-row gap-8 mt-4">
-            {/* Sidebar / Filters */}
-            <aside className="w-full lg:w-72 shrink-0">
-              <div className="bg-white/80 backdrop-blur-2xl border border-white/60 rounded-[2rem] p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] sticky top-28">
-                <div className="flex items-center justify-between font-bold text-green-950 mb-6 pb-4 border-b border-green-100/50">
-                  <span className="flex items-center gap-2 text-lg">
-                    <Filter className="w-5 h-5 text-emerald-600" /> Filters
-                  </span>
-                </div>
-                {/* Search */}
-                <div className="relative mb-8">
-                  <input
-                    type="text"
-                    placeholder="Search products..."
-                    className="w-full bg-emerald-50/50 border border-emerald-100 rounded-xl py-2.5 pl-4 pr-10 text-sm focus:outline-none focus:border-emerald-400 focus:ring-2 focus:ring-emerald-400/20 transition-all placeholder-emerald-700/50"
-                  />
-                  <Search className="w-4 h-4 text-emerald-600 absolute right-4 top-1/2 -translate-y-1/2" />
-                </div>
-              </div>
-            </aside>
-
-            {/* UPGRADED COMPACT GRID: 2 on mobile, 3 on tablet, 4 on desktop */}
-            <div className="flex-1">
-              <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-6">
-                {products.map((item: any) => (
-                  <div
-                    key={item._id}
-                    className="bg-white/80 backdrop-blur-xl rounded-2xl overflow-hidden border border-white/60 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col group"
-                  >
-                    {/* The entire top half of the card links to the details page */}
-                    <a
-                      href={`/shop/${item._id}`}
-                      className="block flex-1 cursor-pointer"
-                    >
-                      {/* Premium Image Area with Blurred Ambient Backdrop */}
-                      <div className="aspect-[4/5] relative overflow-hidden bg-emerald-50/30 border-b border-emerald-50 flex items-center justify-center">
-                        
-                        {item.images && item.images.length > 0 ? (
-                          <>
-                            {/* 1. The Blurred Background Layer */}
-                            <div className="absolute inset-0 opacity-40 group-hover:opacity-60 transition-opacity duration-700 overflow-hidden">
-                              <img 
-                                src={urlFor(item.images[0]).width(400).blur(50).url()} 
-                                alt="" 
-                                className="w-full h-full object-cover blur-2xl scale-125 saturate-150" 
-                              />
-                            </div>
-                            
-                            {/* 2. The Crisp Foreground Image */}
-                            <div className="relative z-10 w-full h-full p-5 flex items-center justify-center">
-                              <img 
-                                src={urlFor(item.images[0]).url()} 
-                                alt={item.name} 
-                                className="w-full h-full object-contain drop-shadow-xl group-hover:scale-110 transition-transform duration-700 ease-out" 
-                              />
-                            </div>
-                          </>
-                        ) : (
-                          <div className="flex h-full w-full items-center justify-center bg-emerald-50 rounded-xl relative z-10">
-                            <ShoppingBag className="w-10 h-10 text-emerald-300/80" />
-                          </div>
-                        )}
-                        
-                        {/* Video Indicator Badge */}
-                        {item.video && (
-                          <div className="absolute top-3 right-3 bg-black/60 backdrop-blur-md text-white text-[10px] font-bold px-2 py-1 rounded-full flex items-center gap-1 shadow-sm z-20">
-                            ▶ Video
-                          </div>
-                        )}
-                      </div>
-
-                      {/* Product Details - Smaller text for compact view */}
-                      <div className="p-3 sm:p-4 flex flex-col">
-                        <h3 className="font-bold text-sm sm:text-base text-green-950 mb-1 line-clamp-1 group-hover:text-emerald-700 transition-colors">
-                          {item.name}
-                        </h3>
-                        <div className="flex items-center gap-1 mb-2">
-                          <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
-                          <span className="text-[10px] sm:text-xs text-green-600 font-bold">
-                            4.9
-                          </span>
-                        </div>
-                        <span className="text-base sm:text-lg font-black text-green-950 tracking-tight">
-                          ₹{item.price}
-                        </span>
-                      </div>
-                    </a>
-
-                    {/* WhatsApp Button at the very bottom */}
-                    <div className="px-3 pb-3 sm:px-4 sm:pb-4 pt-0">
-                      <a
-                        href={`https://wa.me/${myWhatsAppNumber}?text=${encodeURIComponent(`Hi Glow Global Mart, I am interested in buying: ${item.name} (₹${item.price}). Is it available?`)}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-full bg-emerald-50 border border-emerald-100 text-emerald-700 hover:bg-emerald-600 hover:text-white py-2 sm:py-2.5 rounded-xl transition-all duration-300 shadow-sm flex items-center justify-center gap-2 text-xs sm:text-sm font-bold"
-                      >
-                        <ShoppingCart className="w-4 h-4 sm:w-5 sm:h-5" /> Buy
-                      </a>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+        {/* The Interactive Shop Section */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 -mt-8 pb-20">
+          {/* We pass the fetched products directly into our Client Component */}
+          <ShopClient products={products} />
         </div>
       </main>
       <Footer />

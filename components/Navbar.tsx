@@ -4,21 +4,19 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
-  Search,
-  ShoppingCart,
-  User,
   Menu,
   X,
   Users,
   Leaf,
   ShieldCheck,
+  MessageCircle,
+  Flower2,
+  Sparkles,
 } from "lucide-react";
-
-import CartSidebar from "./CartSidebar"; // <-- Added Import
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isCartOpen, setIsCartOpen] = useState(false); // <-- Added Cart State
+
   {
     /* Navigation (Glassmorphism Sticky Header) */
   }
@@ -59,37 +57,39 @@ export default function Navbar() {
 
           {/* Main Links (Center) */}
           <div className="hidden lg:flex items-center gap-8 text-sm font-semibold text-green-900">
-            <a href="#" className="relative group py-1">
+            <a href="/#" className="relative group py-1">
               <span className="group-hover:text-emerald-600 transition-colors duration-300">
                 Home
               </span>
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-emerald-500 transition-all duration-300 ease-out group-hover:w-full rounded-full"></span>
             </a>
-            <a href="#shop" className="relative group py-1">
-              <span className="group-hover:text-emerald-600 transition-colors duration-300">
-                Shop
-              </span>
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-emerald-500 transition-all duration-300 ease-out group-hover:w-full rounded-full"></span>
-            </a>
-            <a href="#services" className="relative group py-1">
-              <span className="group-hover:text-emerald-600 transition-colors duration-300">
-                Services
-              </span>
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-emerald-500 transition-all duration-300 ease-out group-hover:w-full rounded-full"></span>
-            </a>
-            <a href="#farmer-market" className="relative group py-1">
-              <span className="group-hover:text-emerald-600 transition-colors duration-300">
-                Farmer Market
-              </span>
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-emerald-500 transition-all duration-300 ease-out group-hover:w-full rounded-full"></span>
-            </a>
-            <a href="#about" className="relative group py-1">
+            <a href="/#about" className="relative group py-1">
               <span className="group-hover:text-emerald-600 transition-colors duration-300">
                 About
               </span>
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-emerald-500 transition-all duration-300 ease-out group-hover:w-full rounded-full"></span>
             </a>
-            <a href="#contact" className="relative group py-1">
+            <a href="/#services" className="relative group py-1">
+              <span className="group-hover:text-emerald-600 transition-colors duration-300">
+                Services
+              </span>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-emerald-500 transition-all duration-300 ease-out group-hover:w-full rounded-full"></span>
+            </a>
+            <a href="/#shop" className="relative group py-1">
+              <span className="group-hover:text-emerald-600 transition-colors duration-300">
+                Shop
+              </span>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-emerald-500 transition-all duration-300 ease-out group-hover:w-full rounded-full"></span>
+            </a>
+
+            <a href="/#farmer-market" className="relative group py-1">
+              <span className="group-hover:text-emerald-600 transition-colors duration-300">
+                Farmer Market
+              </span>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-emerald-500 transition-all duration-300 ease-out group-hover:w-full rounded-full"></span>
+            </a>
+
+            <a href="/#contact" className="relative group py-1">
               <span className="group-hover:text-emerald-600 transition-colors duration-300">
                 Contact
               </span>
@@ -97,31 +97,31 @@ export default function Navbar() {
             </a>
           </div>
 
-          {/* Action Buttons (Search, Cart, Login, Hamburger) */}
+          {/* Action Buttons (Right Side) */}
           <div className="flex items-center gap-3 sm:gap-5">
-            <div className="relative group hidden md:block">
-              <input
-                type="text"
-                placeholder="Search products..."
-                className="bg-white/80 border border-green-200 rounded-full py-2 pl-4 pr-10 text-sm text-green-950 placeholder-green-600 focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 transition-all w-48 xl:w-64"
-              />
-              <Search className="w-4 h-4 text-green-600 absolute right-4 top-1/2 -translate-y-1/2 group-hover:text-emerald-600 transition-colors" />
+            {/* Desktop: Decorative Watermark Cluster & WhatsApp CTA */}
+            <div className="hidden md:flex items-center gap-2">
+              {/* Artisan Watermark Stamp Cluster */}
+              <div className="pointer-events-none flex items-center justify-center pr-3">
+                {/* Glow Sparkle */}
+                <Sparkles className="w-4 h-4 text-emerald-600/20 fill-emerald-600/20 rotate-12 -mr-1 mt-4 drop-shadow-sm" />
+                {/* Handcrafted Flower */}
+                <Flower2 className="w-8 h-8 text-emerald-600/15 fill-emerald-600/15 -rotate-12 drop-shadow-sm relative z-10" />
+                {/* Eco Leaf */}
+                <Leaf className="w-5 h-5 text-emerald-600/20 fill-emerald-600/20 text-emerald-600/20 rotate-45 -ml-1.5 mb-3 drop-shadow-sm" />
+              </div>
+
+              {/* Primary Chat Button */}
+              <a
+                href="https://wa.me/918886308184?text=Hi%20Glow%20Global%20Mart,%20I%20have%20a%20question!"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 px-5 py-2.5 rounded-full text-sm font-bold text-white shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
+              >
+                <MessageCircle className="w-4 h-4" />
+                <span>Chat with us</span>
+              </a>
             </div>
-
-            <button
-              onClick={() => setIsCartOpen(true)}
-              className="relative p-2 text-green-800 hover:text-emerald-600 hover:bg-emerald-50 rounded-full transition-all duration-300 hover:scale-110 active:scale-95"
-            >
-              <ShoppingCart className="w-5 h-5" />
-              <span className="absolute top-0 right-0 w-4 h-4 bg-amber-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center shadow-sm border border-white">
-                0
-              </span>
-            </button>
-
-            <button className="hidden sm:flex items-center gap-2 bg-green-700 hover:bg-green-800 px-5 py-2.5 rounded-full text-sm font-medium text-white shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 active:translate-y-0">
-              <User className="w-4 h-4" />
-              <span>Login</span>
-            </button>
 
             {/* Hamburger Button (Mobile Only) */}
             <button
@@ -141,66 +141,62 @@ export default function Navbar() {
         {isMobileMenuOpen && (
           <div className="lg:hidden bg-white/95 backdrop-blur-xl border-t border-green-200 absolute top-full left-0 w-full shadow-lg flex flex-col py-4 px-6 gap-4 text-sm font-semibold text-green-900 z-50">
             <a
-              href="#"
+              href="/"
               onClick={() => setIsMobileMenuOpen(false)}
               className="hover:text-emerald-600"
             >
               Home
             </a>
             <a
-              href="#shop"
+              href="/#shop"
               onClick={() => setIsMobileMenuOpen(false)}
               className="hover:text-emerald-600"
             >
               Shop
             </a>
             <a
-              href="#services"
+              href="/#services"
               onClick={() => setIsMobileMenuOpen(false)}
               className="hover:text-emerald-600"
             >
               Services
             </a>
             <a
-              href="#farmer-market"
+              href="/#farmer-market"
               onClick={() => setIsMobileMenuOpen(false)}
               className="hover:text-emerald-600"
             >
               Farmer Market
             </a>
             <a
-              href="#about"
+              href="/#about"
               onClick={() => setIsMobileMenuOpen(false)}
               className="hover:text-emerald-600"
             >
               About
             </a>
             <a
-              href="#contact"
+              href="/#contact"
               onClick={() => setIsMobileMenuOpen(false)}
               className="hover:text-emerald-600"
             >
               Contact
             </a>
-            {/* Mobile Search & Login */}
-            <div className="flex flex-col gap-3 mt-2 pt-4 border-t border-green-100">
-              <div className="relative">
-                <input
-                  type="text"
-                  placeholder="Search products..."
-                  className="w-full bg-white border border-green-200 rounded-full py-2 pl-4 pr-10 text-sm focus:outline-none focus:border-emerald-500"
-                />
-                <Search className="w-4 h-4 text-green-600 absolute right-4 top-1/2 -translate-y-1/2" />
-              </div>
-              <button className="flex justify-center items-center gap-2 bg-green-700 hover:bg-green-800 px-5 py-2.5 rounded-full text-sm font-medium text-white transition-all w-full">
-                <User className="w-4 h-4" />
-                <span>Login</span>
-              </button>
+            {/* Mobile Bottom CTA */}
+            <div className="mt-2 pt-4 border-t border-green-100">
+              <a
+                href="https://wa.me/918886308184?text=Hi%20Glow%20Global%20Mart,%20I%20have%20a%20question!"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex justify-center items-center gap-2 bg-emerald-600 hover:bg-emerald-500 px-5 py-3 rounded-full text-sm font-bold text-white transition-all w-full shadow-sm"
+              >
+                <MessageCircle className="w-5 h-5" />
+                <span>Chat on WhatsApp</span>
+              </a>
             </div>
           </div>
         )}
       </nav>
-      <CartSidebar isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
     </>
   );
 }
