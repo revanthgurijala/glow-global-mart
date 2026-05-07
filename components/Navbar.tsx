@@ -148,11 +148,11 @@ export default function Navbar() {
               Home
             </a>
             <a
-              href="/#shop"
+              href="/#about"
               onClick={() => setIsMobileMenuOpen(false)}
               className="hover:text-emerald-600"
             >
-              Shop
+              About
             </a>
             <a
               href="/#services"
@@ -162,19 +162,21 @@ export default function Navbar() {
               Services
             </a>
             <a
+              href="/#shop"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="hover:text-emerald-600"
+            >
+              Shop
+            </a>
+
+            <a
               href="/#farmer-market"
               onClick={() => setIsMobileMenuOpen(false)}
               className="hover:text-emerald-600"
             >
               Farmer Market
             </a>
-            <a
-              href="/#about"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="hover:text-emerald-600"
-            >
-              About
-            </a>
+
             <a
               href="/#contact"
               onClick={() => setIsMobileMenuOpen(false)}

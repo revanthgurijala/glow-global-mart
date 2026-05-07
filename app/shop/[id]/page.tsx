@@ -1,12 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import {
-  Star,
-  ShieldCheck,
-  Truck,
-  ArrowLeft,
-  ShoppingCart,
-} from "lucide-react";
+import { ShieldCheck, Truck, ArrowLeft, ShoppingCart } from "lucide-react";
 import Link from "next/link";
 import { createClient } from "next-sanity";
 
@@ -86,22 +80,9 @@ export default async function ProductDetail({
                   </div>
                 )}
 
-                <h1 className="text-3xl lg:text-5xl font-black text-green-950 mb-4 leading-tight">
+                <h1 className="text-3xl lg:text-5xl font-black text-green-950 mb-6 pb-6 border-b border-green-100 leading-tight">
                   {product.name}
                 </h1>
-
-                <div className="flex items-center gap-4 mb-6 pb-6 border-b border-green-100">
-                  <div className="flex items-center gap-1 text-amber-400">
-                    <Star className="w-5 h-5 fill-amber-400" />
-                    <Star className="w-5 h-5 fill-amber-400" />
-                    <Star className="w-5 h-5 fill-amber-400" />
-                    <Star className="w-5 h-5 fill-amber-400" />
-                    <Star className="w-5 h-5 fill-amber-400" />
-                  </div>
-                  <span className="text-sm font-bold text-green-700">
-                    4.9 Ratings
-                  </span>
-                </div>
 
                 <div className="mb-8">
                   <span className="text-4xl font-black text-green-950 tracking-tight">

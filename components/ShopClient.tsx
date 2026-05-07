@@ -7,7 +7,6 @@ import {
   ShoppingBag,
   Filter,
   ArrowUpDown,
-  Star,
   ChevronDown,
 } from "lucide-react";
 import { createImageUrlBuilder } from "@sanity/image-url";
@@ -224,13 +223,8 @@ export default function ShopClient({ products }: { products: any[] }) {
                     <h3 className="font-bold text-sm sm:text-base text-green-950 mb-1 line-clamp-1 group-hover:text-emerald-700 transition-colors">
                       {item.name}
                     </h3>
-                    <div className="flex items-center gap-1 mb-2">
-                      <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
-                      <span className="text-[10px] sm:text-xs text-green-600 font-bold">
-                        4.9
-                      </span>
-                    </div>
-                    <span className="text-base sm:text-lg font-black text-green-950 tracking-tight">
+
+                    <span className="text-base sm:text-lg font-black text-green-950 tracking-tight mt-1">
                       ₹{item.price}
                     </span>
                   </div>
