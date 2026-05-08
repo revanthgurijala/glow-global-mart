@@ -113,7 +113,7 @@ export default function Navbar() {
 
               {/* Primary Chat Button */}
               <a
-                href="https://wa.me/918886308184?text=Hi%20Glow%20Global%20Mart,%20I%20have%20a%20question!"
+                href="https://wa.me/919963420226?text=Hi%20Glow%20Global%20Mart,%20I%20have%20a%20question!"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 px-5 py-2.5 rounded-full text-sm font-bold text-white shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
@@ -187,7 +187,7 @@ export default function Navbar() {
             {/* Mobile Bottom CTA */}
             <div className="mt-2 pt-4 border-t border-green-100">
               <a
-                href="https://wa.me/918886308184?text=Hi%20Glow%20Global%20Mart,%20I%20have%20a%20question!"
+                href="https://wa.me/919963420226?text=Hi%20Glow%20Global%20Mart,%20I%20have%20a%20question!"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex justify-center items-center gap-2 bg-emerald-600 hover:bg-emerald-500 px-5 py-3 rounded-full text-sm font-bold text-white transition-all w-full shadow-sm"

@@ -32,7 +32,7 @@ export default function ShopClient({ products }: { products: any[] }) {
   // NEW: Memory state for the mobile dropdown
   const [isMobileFiltersOpen, setIsMobileFiltersOpen] = useState(false);
 
-  const myWhatsAppNumber = "918886308184";
+  const myWhatsAppNumber = "919963420226";
 
   const categories = [
     "All",
