@@ -17,14 +17,23 @@ export const product = defineType({
       type: "string",
       options: {
         list: [
+          { title: "Home & Kitchen", value: "Home & Kitchen" },
+          { title: "Handicrafts", value: "Handicrafts" },
           { title: "One Gram Jewellery", value: "One Gram Jewellery" },
-          { title: "Handcrafted & ODOP", value: "Handcrafted & ODOP" },
-          { title: "Corporate Gifts", value: "Corporate Gifts" },
-          { title: "Customized Art", value: "Customized Art" },
+          { title: "Gift Items", value: "Gift Items" },
+          { title: "Eco Products", value: "Eco Products" },
+          { title: "Decorative Products", value: "Decorative Products" },
           {
-            title: "Eco-Friendly (Second Life)",
-            value: "Eco-Friendly (Second Life)",
+            title: "Spiritual & Cultural Products",
+            value: "Spiritual & Cultural Products",
           },
+          { title: "Fashion Accessories", value: "Fashion Accessories" },
+          {
+            title: "Toys & Handmade Creations",
+            value: "Toys & Handmade Creations",
+          },
+          { title: "Pet Care Products", value: "Pet Care Products" },
+          { title: "Trending Now", value: "Trending Now" },
         ],
       },
     }),
